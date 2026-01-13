@@ -63,7 +63,7 @@ func create_wall() -> void:
 	if(debugging):
 		print("Top Height: ", bottom_start_y)
 		print("Top Y Position", bottom_height)
-		print("Bottom Position Y", bottom_position_y)
+		print("Bottom Position Y", bottom_y_position)
 	
 	bottom_wall.add_child(bottom_collision)
 	add_child(bottom_wall)
