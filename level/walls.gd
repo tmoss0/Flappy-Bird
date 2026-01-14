@@ -21,7 +21,6 @@ func _process(delta: float) -> void:
 func create_wall() -> void:
 	# Top Gap
 	# Top bar + half of gap size to create top por
-	
 	var half_gap = gap_size / 2
 	var min_gap_y = half_gap + 50
 	var max_gap_y = screen_height - half_gap - 50
@@ -44,7 +43,7 @@ func create_wall() -> void:
 	top_collision.position = Vector2(0, top_y_position)
 	if(debugging):
 		print("Top Height: ", top_height)
-		print("Top Y Position", top_y_position)
+		print("Top Y Position: ", top_y_position)
 	
 	top_wall.add_child(top_collision)
 	add_child(top_wall)

@@ -18,6 +18,6 @@ position = Vector2(0, -185)
 
 [node name="WallSpawner" type="Node2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(553, -381)
+position = Vector2(553, 0)
 
 [connection signal="body_entered" from="Platform" to="Character" method="_on_platform_body_entered"]
