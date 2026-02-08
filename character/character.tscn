@@ -1,20 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://bkbpongblajc4"]
+[gd_scene format=3 uid="uid://bkbpongblajc4"]
 
 [ext_resource type="Script" uid="uid://bq0xamrlsc0ed" path="res://character/character.gd" id="1_yf0e5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf0e5"]
 size = Vector2(20, 21)
 
-[node name="Character" type="CharacterBody2D"]
+[node name="Character" type="CharacterBody2D" unique_id=484542194]
 collision_mask = 2
 script = ExtResource("1_yf0e5")
 JUMP_VELOCITY = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=298960566]
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_yf0e5")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1296941065]
 offset_left = -9.0
 offset_top = -9.0
 offset_right = 31.909313

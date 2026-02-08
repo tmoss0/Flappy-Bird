@@ -17,9 +17,13 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		jump_timer = JUMP_COOLDOWN
 		print("JUMP")
+	
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		print("Character colliding with: ", collision.get_collider().name)
 
 	move_and_slide()
 
 func _on_platform_body_entered(body: Node2D) -> void:
 	if(body.name == "Character"): 
-		print("Game over!")
+		print("Game over, collision with bottom platform!")

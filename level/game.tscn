@@ -1,22 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://m7jq3rsjcfwa"]
+[gd_scene format=3 uid="uid://m7jq3rsjcfwa"]
 
 [ext_resource type="Script" uid="uid://i20i7fnja5di" path="res://level/game.gd" id="1_bk1rt"]
 [ext_resource type="PackedScene" uid="uid://bkbpongblajc4" path="res://character/character.tscn" id="1_vu7ft"]
 [ext_resource type="PackedScene" uid="uid://tq8c0olq45ku" path="res://level/platform.tscn" id="2_hjeur"]
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" unique_id=1547793813]
 script = ExtResource("1_bk1rt")
 
-[node name="Character" parent="." instance=ExtResource("1_vu7ft")]
+[node name="Character" parent="." unique_id=1181129671 instance=ExtResource("1_vu7ft")]
 position = Vector2(0, -200)
 JUMP_VELOCITY = -400.0
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1321733738]
 position = Vector2(0, -185)
 
-[node name="Platform" parent="." instance=ExtResource("2_hjeur")]
+[node name="Platform" parent="." unique_id=813539717 instance=ExtResource("2_hjeur")]
 
-[node name="WallSpawner" type="Node2D" parent="."]
+[node name="WallSpawner" type="Node2D" parent="." unique_id=1016154243]
 unique_name_in_owner = true
 position = Vector2(553, 0)
 

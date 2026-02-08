@@ -15,6 +15,12 @@ func _process(delta: float) -> void:
 func spawn_wall() -> void:
 	print("Wall spawned")
 	var wall = wall_scene.instantiate()
-	wall.position = wall_spawner.position
+	wall.position = wall_spawner.position   	
+	wall.wall_hit.connect(_on_wall_hit)
+	
 	add_child(wall)
 	print("Wall added at ", wall.position)
+
+func _on_wall_hit():
+	print("Wall collision detected in game script!")
+	print("Game over, collision with wall!")
