@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 	if _game_over:
 		return
 	spawn_timer += delta
-	if(spawn_timer > spawn_interval):
+	if (spawn_timer > spawn_interval):
 		print("Spawning wall")
 		spawn_wall()
 		spawn_timer = 0.0
@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 func spawn_wall() -> void:
 	print("Wall spawned")
 	var wall = wall_scene.instantiate()
-	wall.position = wall_spawner.position   	
+	wall.position = wall_spawner.position
 	wall.wall_hit.connect(_on_wall_hit)
 	wall.scored.connect(_on_wall_scored)
 	
