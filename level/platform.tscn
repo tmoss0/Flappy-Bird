@@ -1,20 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://tq8c0olq45ku"]
+[gd_scene format=3 uid="uid://tq8c0olq45ku"]
 
 [ext_resource type="Script" uid="uid://boqs3oxs8arp3" path="res://level/platform.gd" id="1_m0cvm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vwm5i"]
 
-[node name="Platform" type="Area2D"]
+[node name="Platform" type="Area2D" unique_id=49106070]
 collision_layer = 2
 script = ExtResource("1_m0cvm")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=673144573]
 offset_left = -364.0
 offset_right = -324.0
 offset_bottom = 40.0
 scale = Vector2(18.199995, 1)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=225290626]
 position = Vector2(-0.6648407, 3)
 scale = Vector2(40.38903, 1)
 shape = SubResource("RectangleShape2D_vwm5i")

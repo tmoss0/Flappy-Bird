@@ -1,17 +1,18 @@
 extends Node2D
 
 signal wall_hit
+signal scored
 
-@export var debugging = true
-@export var delete_wall_position = -500.0
-@export var wall_width := 200.0
-@export var gap_size := 150.0
-@export var wall_y_bottom_position := -100.0
-@export var wall_y_top_position := -500.0
-@export var wall_thickness := 50.0
-@export var screen_height := 600.0
-@export var scroll_speed := 200.0
-var half_gap = gap_size / 2
+@export var debugging: bool = true
+@export var delete_wall_position: float = -500.0
+@export var wall_width: float = 200.0
+@export var gap_size: float = 150.0
+@export var wall_y_bottom_position: float = -100.0
+@export var wall_y_top_position: float = -500.0
+@export var wall_thickness: float = 50.0
+@export var screen_height: float = 600.0
+@export var scroll_speed: float = 200.0
+var half_gap: float = gap_size / 2
 
 func _ready() -> void:
 	print("Wall Create Function called")
@@ -44,6 +45,26 @@ func create_wall() -> void:
 	if(debugging):
 		print("Top wall - Height: ", top_wall_height, " Position: ", top_wall_position, " Bottom: ", top_wall_bottom)
 	create_wall_segment(top_wall_height, top_wall_position)
+	create_score_zone(wall_gap_location)
+
+func create_score_zone(gap_center_y: float) -> void:
+	var zone := Area2D.new()
+	zone.collision_layer = 0
+	zone.collision_mask = 1
+	var collision := CollisionShape2D.new()
+	var rect := RectangleShape2D.new()
+	rect.size = Vector2(24.0, maxf(gap_size - 4.0, 8.0))
+	collision.shape = rect
+	zone.add_child(collision)
+	zone.position = Vector2(0.0, gap_center_y)
+	zone.body_entered.connect(func(body: Node2D) -> void: _on_score_zone_body_entered(body, zone))
+	add_child(zone)
+
+func _on_score_zone_body_entered(body: Node2D, zone: Area2D) -> void:
+	if body.name != "Character":
+		return
+	scored.emit()
+	zone.queue_free()
 
 func create_wall_segment(height: float, wall_position: Vector2) -> void:
 	var wall = generate_wall()
@@ -56,9 +77,8 @@ func create_wall_segment(height: float, wall_position: Vector2) -> void:
 	var collision = wall.get_child(0) as CollisionShape2D
 	(collision.shape as RectangleShape2D).size = size
 	
+	wall.body_entered.connect(_on_wall_body_entered)
 	if(debugging):
-		var result = wall.body_entered.connect(_on_wall_body_entered)
-		print("Signal connection result: ", result, " (0 = OK)")
 		print("Wall Area2D position: ", wall.global_position)
 		print("Collision shape size: ", (collision.shape as RectangleShape2D).size)
 	

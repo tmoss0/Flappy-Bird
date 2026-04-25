@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
-@export var SPEED := 300.0
-@export var JUMP_VELOCITY := -400.0
-@export var JUMP_COOLDOWN := 0.6
+@export var SPEED: float = 300.0
+@export var JUMP_VELOCITY: float = -400.0
+@export var JUMP_COOLDOWN: float = 0.6
 
-var jump_timer := 0.0
+var jump_timer: float = 0.0
 
 func _physics_process(delta: float) -> void:
 	if jump_timer > 0:
@@ -23,7 +23,3 @@ func _physics_process(delta: float) -> void:
 		print("Character colliding with: ", collision.get_collider().name)
 
 	move_and_slide()
-
-func _on_platform_body_entered(body: Node2D) -> void:
-	if(body.name == "Character"): 
-		print("Game over, collision with bottom platform!")

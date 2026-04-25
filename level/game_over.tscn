@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://dc3fy0pyqi31h"]
+
+[ext_resource type="Script" uid="uid://c5r2g8vm1p0xq" path="res://level/game_over.gd" id="1_go"]
+
+[node name="GameOver" type="CanvasLayer" unique_id=133808457]
+script = ExtResource("1_go")
+
+[node name="Panel" type="Panel" parent="." unique_id=1656380142]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -110.0
+offset_right = 200.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelGameOver" type="Label" parent="Panel" unique_id=796280590]
+layout_mode = 0
+offset_left = 154.0
+offset_top = 46.0
+offset_right = 246.0
+offset_bottom = 69.0
+scale = Vector2(0.9080099, 0.933023)
+text = "Game Over!"
+
+[node name="LabelFinalScore" type="Label" parent="Panel" unique_id=796280591]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 72.0
+offset_right = 280.0
+offset_bottom = 102.0
+horizontal_alignment = 1
+text = "Score: 0"
+
+[node name="ButtonRestart" type="Button" parent="Panel" unique_id=14326415]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 109.0
+offset_right = 184.0
+offset_bottom = 120.0
+text = "Restart"
+
+[node name="ButtonQuit" type="Button" parent="Panel" unique_id=1219508899]
+layout_mode = 0
+offset_left = 222.0
+offset_top = 109.0
+offset_right = 287.0
+offset_bottom = 120.0
+text = "Quit"
